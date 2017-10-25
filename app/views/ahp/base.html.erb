@@ -1,0 +1,50 @@
+<% content_for :head do%>
+    <%javascript_include_tag "notify"%>
+<%end%>
+<div>
+    <h4>
+        <%=t("AHPIntroduction")%> Mais informações em: <%= link_to "#{t('About')} AHP", "https://pt.wikipedia.org/wiki/Analytic_Hierarchy_Process"%>
+    </h4>
+</div>
+
+<div>
+    <h3>
+        <b>Hierarquia Default</b>: <span style="color:blue">Nuvens computacionais</spam>
+    </h3>
+    <table>
+        <div class="tree">
+            <th>
+                <td>
+                    <%=render(:partial =>'form_tree') %>
+                </td>
+                <td>
+                    <%=render(:partial =>'form_tree_custom')%>
+                </td>
+            </th>
+        </div>
+    </table>
+</div>
+
+<div>
+
+    <h3>
+        <b>Distribuição de pesos</b> aplicada a hierarquia
+    </h3>
+</div>
+
+<%= render 'form_category'%>
+
+<div class='actions' style='padding:2px;float:right;'>
+    <table class='botoes'>
+        <tr>
+            <td class='bot'>
+                <%=button_to "#{t('Execute')}", ahp_execute_ahp_path(:cloudId => @cloud),method: :post %>
+            </td>
+            <td class='bot'>
+                <%=button_to "#{t('comeBack')}", new_cloud_path(params[:id]), method: :get%>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<%=flash_message%>

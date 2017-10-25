@@ -1,0 +1,17 @@
+
+<%
+    data=[]
+    mod=get_models
+    models=[]
+    mod.each do |m|
+        if m!="Cost"
+            models<<m
+        end
+    end
+    ans=calculate
+%>
+<%res=create_kiviat("Resultados",models,get_alternatives(models[0]),ans)%>
+
+<%tab=create_show(ans,models,res)%>
+
+<%=tab.html_safe%>

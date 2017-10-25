@@ -1,0 +1,23 @@
+<h1>
+    <%=t('MulticriteriaWelcome')%>
+</h1>
+
+<div>
+
+</div>
+
+<div>
+    <h3>
+        <label>
+            Selecione um método de análise multicritério
+        </label>
+        <br />
+        <%= radio_button "method","category","ahp",:checked => true%><label>AHP</label>
+    </h3>
+    <br />
+    <%= button_to "Confirm", new_cloud_path, method: :get%>
+</div>
+
+<p>
+ <%="#{t('TimeNow')} #{DateTime.now.utc}" %>
+</p>
